@@ -19,7 +19,7 @@ import { isStringDefined } from "src/shared/utils/validators";
 import CircularProgress from "@suid/material/CircularProgress";
 
 const App = (): JSXElement => {
-  document.title = "Fidelity";
+  document.title = "SolidJS app";
 
   const { authInfo }: Partial<IAuthContext> = useAuth();
   const [appLoaded, setAppLoaded] = createSignal(false);
