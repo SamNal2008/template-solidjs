@@ -1,0 +1,43 @@
+.navbar-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 32px;
+  align-items: center;
+}
+
+.navbar-container {
+  margin: 0;
+  order: 0;
+  outline: 0;
+  background-color: rgb(31, 31, 31); /* #353535 */
+  font-size: 100%;
+  padding: 8px;
+  position: sticky;
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.activity-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  justify-content: space-evenly;
+  justify-self: flex-end;
+  margin-left: auto;
+}
+
+.fidelity-logo {
+  margin-top: 8px;
+  margin-right: 32px;
+}
+
+.register-button {
+  border-radius: 8px;
+  background-color: #bbefff;
+  color: black;
+  width: 24px;
+}

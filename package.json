@@ -1,0 +1,52 @@
+{
+  "name": "fidelity-website",
+  "version": "0.0.1",
+  "description": "Pretty website for fidelity",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "lint": "eslint --config config/.eslintrc.json . --ext ts --ext tsx",
+    "build": "vite build",
+    "serve": "vite preview",
+    "test": "vitest",
+    "test-run": "vitest run",
+    "prettier:check": "prettier --config config/.prettierrc --check \\\"src/**/*.{ts,tsx,json,md,css,html}\\\"",
+    "prettier:format": "prettier --config config/.prettierrc --write \\\"src/**/*.{ts,tsx,json,md,css,html}\\\"",
+    "pre-commit": "lint-staged -c config/.lintstagedrc",
+    "prepare": "husky install .husky"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "eslint": "8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-solid": "^0.7.4",
+    "husky": "^8.0.0",
+    "jsdom": "^20.0.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "2.7.1",
+    "sass": "^1.53.0",
+    "solid-testing-library": "^0.3.0",
+    "string.prototype.replaceall": "^1.0.6",
+    "typescript": "^4.8.4",
+    "vite": "^3.1.6",
+    "vite-plugin-solid": "^2.2.6",
+    "vitest": "^0.24.3"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@suid/icons-material": "^0.4.1",
+    "@suid/material": "^0.6.3",
+    "axios": "^1.1.2",
+    "solid-app-router": "^0.4.1",
+    "solid-js": "^1.4.2",
+    "solid-js-form": "^0.1.5",
+    "yup": "^0.32.11"
+  }
+}

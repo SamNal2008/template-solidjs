@@ -1,0 +1,58 @@
+.registration-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 16px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.747);
+}
+
+.grid-item-registration {
+  display: flex;
+  width: 45vw;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.registration-page {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding-top: 32px;
+}
+
+.fidelity-icon {
+  background-color: #e1be7d;
+}
+
+.register-container {
+  border-radius: 16px;
+  box-shadow: 0 0 10px 0 white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 32px;
+  height: 90%;
+  background-color: rgba(34, 33, 33, 0.425);
+  padding: 16px 32px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 16px;
+}

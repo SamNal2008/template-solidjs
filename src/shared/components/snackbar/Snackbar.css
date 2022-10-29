@@ -1,0 +1,7 @@
+.snackbar {
+  transform: translateX(-50%);
+  width: 30%;
+  left: 50%;
+  top: 90%;
+  position: absolute;
+}

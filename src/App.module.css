@@ -1,0 +1,38 @@
+.App {
+  text-align: center;
+}
+
+.Body {
+  width: 98%;
+  min-height: 80vh;
+  padding-bottom: 24px;
+  margin: 1%;
+}
+
+.gradient-button {
+  border-radius: 8px;
+  background: -webkit-linear-gradient(left, rgba(63, 94, 251, 1), rgba(252, 70, 107, 1));
+  color: white;
+}
+
+.gradient-text {
+  background: -webkit-linear-gradient(left, rgba(63, 94, 251, 1), rgba(252, 70, 107, 1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.input-error {
+  font-size: 11px;
+  color: red;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px black inset !important;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+}

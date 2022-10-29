@@ -1,0 +1,7 @@
+.test {
+  background: -webkit-linear-gradient(left, rgba(63, 94, 251, 1), rgba(252, 70, 107, 1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
