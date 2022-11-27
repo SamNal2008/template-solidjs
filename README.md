@@ -1,4 +1,4 @@
-# Hey everyone and welcome on my SolidJS template
+# Hey everyone and welcome on my SolidJS template !
 
 ## What will you find in this template ?
 
