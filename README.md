@@ -26,3 +26,15 @@
 
 - You have a file [theme.ts](./src/shared/styles/theme.ts)
 - In this file you can update your style to have the wanted style on your website
+
+## Setup your deployment :
+
+- Go into your Github repository
+- Setup your credentials in the secrets for actions section :
+  ```shell
+  AWS_ACCESS_KEY_ID=<YOUR AWS_ACCESS_KEY_ID>
+  AWS_SECRET_ACCESS_KEY=<YOUR AWS_SECRET_ACCESS_KEY>
+  AWS_DEFAULT_REGION=<YOUR AWS_DEFAULT_REGION>
+  VITE_API_URL=<YOUR API URL>
+  VITE_FILE_PATH=<YOUR FILE BUCKET>
+  ```

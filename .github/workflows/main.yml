@@ -6,20 +6,20 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: [ "MASTER_BRANCH" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "MASTER_BRANCH" ]
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'
+      environment:
+        description: 'Environment you want to deploy'
         required: true
-        default: 'warning'
+        default: 'develop'
         type: choice
         options:
-          - info
-          - warning
-          - debug
+          - develop
+          - staging
+          - production
 
 # List of job that will be executed
 jobs:
@@ -87,6 +87,8 @@ jobs:
         shell: bash
     steps:
       - uses: actions/checkout@v3
+      - name: Write building environment
+        run: echo Lets build the ${{ github.event.inputs.environment }} artifact !
       - name: Install dependencies and save it in `.npm` file
         if: steps.cache-npm.outputs.cache-hit != 'true'
         run: echo 'Need to install dependencies' && npm ci --cache ~/.npm
