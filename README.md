@@ -1,30 +1,25 @@
-# CSS pro tips
+# Hey everyone and welcome on my SolidJS template
 
-```
-.fade-in-medium {
-  animation: fade 3s linear;
-}
+## What will you find in this template ?
 
-.fade-in-fast {
-  animation: fade 1s linear;
-}
+- A base project that run on SolidJS
+- Some wrappers for your https calls
+- Eslint and prettier setup with a pre-commit hook
+- Default component that you can reuse in your project
 
-.fade-in-slow {
-  animation: fade 5s linear;
-}
+## Good to know
 
-@keyframes fade {
-  0% {
-    transform: translateY(300px) translateX(200px);
-    opacity: 0;
-  }
-  50% {
-    transform: translateX(200px);
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-```
+- You have some already setup components built with [SUID.io](https://www.suid.io)
+- You have a [Makefile](./Makefile) with some basics command on which you can iterate
+- I proposed a fill structure with this architecture :
+  - FIXME Insert image here
+
+## Some commands :
+- `$ make init` => Install the template for the first time and rename, within your files, 'template-solidjs' **to** '*your project name*' based on your github repository 
+- `$ make start` => Launch your app in develop mode
+- `$ make test` => Run your tests
+- `$ make lint` => Lint your files
+
+## Setup your styles :
+- You have a file [theme.ts](./src/shared/styles/theme.ts)
+- In this file you can update your style to have the wanted style on your website

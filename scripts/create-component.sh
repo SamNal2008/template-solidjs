@@ -15,11 +15,10 @@ echo "Lets build $page_name 📂";
 cd src/pages &&
 mkdir $page_name &&
 cd $page_name &&
-mkdir component && touch component/$page_name.tsx &&
-mkdir utils && touch utils/$page_name.ts &&
-mkdir service && touch service/$page_name.ts &&
-mkdir store && touch store/$page_name.ts &&
-mkdir style && touch style/$page_name.css &&
-mkdir tests && touch tests/$page_name.test.ts &&
+mkdir component && touch component/$page_name.component.tsx &&
+touch $page_name.utils.ts &&
+touch $page_name.service.ts &&
+touch $page_name.store.ts &&
+touch $page_name.test.ts &&
 touch $page_name.tsx &&
 echo "$page_name created ! 🎉"

@@ -7,13 +7,8 @@ import { UiProvider } from "src/shared/components/context/UiContext";
 import Footer from "src/shared/components/footer/Footer";
 import { Navbar } from "src/shared/components/navbar/Navbar";
 import DrawerMenu from "src/shared/components/side-menu/DrawerMenu";
-import { Home } from "src/pages/Home/Home";
-import { Companies } from "src/pages/MyCompanies/MyCompanies";
 import { NotFound } from "src/pages/NotFound/NotFound";
 import { Playground } from "src/pages/Playground/Playground";
-import { Profile } from "src/pages/Profile/Profile";
-import { Register } from "src/pages/Register/Register";
-import { Signin } from "src/pages/Signin/Signin";
 import { PersistentStoreUtils } from "src/shared/utils/store";
 import { isStringDefined } from "src/shared/utils/validators";
 import CircularProgress from "@suid/material/CircularProgress";
@@ -43,12 +38,7 @@ const App = (): JSXElement => {
               <Navbar />
               <div class={styles.Body}>
                 <Routes>
-                  <Route path={["register", "sign-up", "signup", "s'inscrire"]} component={Register} />
-                  <Route path={["sign-in", "signin", "login", "connexion", "se-connecter"]} component={Signin} />
-                  <Route path="/companies" component={Companies} />
-                  <Route path="/profile" component={Profile} />
                   <Route path="/test" component={Playground} />
-                  <Route path="/" component={Home} />
                   <Route path="/*" component={NotFound} />
                 </Routes>
               </div>
