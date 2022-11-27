@@ -18,7 +18,9 @@ class _Logger {
   // Funny javascript
   private execute(method: ELoggerMethod, message: any): void {
     if (isStringDefined(message) && typeof message !== "string") message = JSON.stringify(message);
-    console[method](`[${method.toUpperCase()} - FIDELITY - ${DateBuilder.full()} - ${this.caller}]: ${message as string}`);
+    console[method](
+      `[${method.toUpperCase()} - FIDELITY - ${DateBuilder.full()} - ${this.caller}]: ${message as string}`
+    );
   }
 
   public log(message: any): void {

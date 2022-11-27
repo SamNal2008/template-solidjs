@@ -15,11 +15,14 @@
   - FIXME Insert image here
 
 ## Some commands :
-- `$ make init` => Install the template for the first time and rename, within your files, 'template-solidjs' **to** '*your project name*' based on your github repository 
+
+- `$ make init` => Install the template for the first time and rename, within your files, '' **to** '_your project
+  name_' based on your github repository
 - `$ make start` => Launch your app in develop mode
 - `$ make test` => Run your tests
 - `$ make lint` => Lint your files
 
 ## Setup your styles :
+
 - You have a file [theme.ts](./src/shared/styles/theme.ts)
 - In this file you can update your style to have the wanted style on your website

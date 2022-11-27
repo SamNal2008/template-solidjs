@@ -32,7 +32,10 @@ export const Navbar = (): JSXElement => {
         <li>
           <Button href={"/companies"}>Nos partenaires</Button>
         </li>
-        <li class={"activity-buttons"} style={isStringDefined(authInfo?.user?.id) ? { "justify-content": "flex-end" }:{}}>
+        <li
+          class={"activity-buttons"}
+          style={isStringDefined(authInfo?.user?.id) ? { "justify-content": "flex-end" } : {}}
+        >
           {isStringDefined(authInfo.user?.id) ? (
             <span>
               {authInfo?.user.userName}

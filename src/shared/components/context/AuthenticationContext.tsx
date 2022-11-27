@@ -91,7 +91,7 @@ export const AuthenticationContext = (props: any): JSXElement => {
           setOpen={setIsLogoutModalOpen}
           onCancelClick={closeLogoutModal}
           onConfirmationClick={logout}
-          img={`${environment.filePath }/exit.png`}
+          img={`${environment.filePath}/exit.png`}
         />
         {props.children}
       </ThemeProvider>

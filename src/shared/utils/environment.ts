@@ -1,15 +1,12 @@
 import { toCamel } from "./text";
 
-// const currentModeEnvironment = import.meta.env.MODE; => Define the current environment
+const currentModeEnvironment = import.meta.env.MODE; // => Define the current environment
 const environmentVariables = import.meta.env;
 
-const loadEnvironment = (): {[key: string]: string} => {
-  const toEnvironmentKey = (s: string): string => {
-    s = s.replace("VITE_", "");
-    s = s.toLowerCase();
-    s = toCamel(s);
-    return s;
-  };
+console.log(currentModeEnvironment);
+
+const loadEnvironment = (): { [key: string]: string } => {
+  const toEnvironmentKey = (s: string): string => toCamel(s.replace("VITE_", "").toLowerCase());
 
   const env: { [key: string]: any } = {};
 

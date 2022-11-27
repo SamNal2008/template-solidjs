@@ -8,7 +8,6 @@ export interface FileInputStore {
 }
 
 export const FileFormInput = (): JSXElement => {
-
   return (
     <div>
       <FileUpload style={{ width: "100%", "justify-content": "space-evenly" }} />

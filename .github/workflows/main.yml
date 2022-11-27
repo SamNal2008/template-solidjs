@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "v1" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "v1" ]
+    branches: [ "main" ]
   workflow_dispatch:
     inputs:
       logLevel:
@@ -118,4 +118,4 @@ jobs:
           AWS_S3_BUCKET: ${{ needs.infra.outputs.bucket_name }} # ${{ secrets.AWS_S3_BUCKET }} # from output
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ secrets.AWS_DEFAULT_REGION }}   # optional: defaults to us-east-1   
+          AWS_REGION: ${{ secrets.AWS_DEFAULT_REGION }}   # optional: defaults to us-east-1

@@ -11,7 +11,7 @@ export const PasswordFormInput = (
   props: PropsOf<TextFieldProps> & FormInputParam & JSX.InputHTMLAttributes<HTMLInputElement>
 ): JSXElement => {
   const [isPasswordShown, setIsPasswordShown] = createSignal(false);
-  const [,rest] = splitProps(props, ["type"]);
+  const [, rest] = splitProps(props, ["type"]);
 
   return (
     <DefaultFormInput

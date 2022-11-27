@@ -31,7 +31,7 @@ test: node_modules
 	npm test
 
 lint: node_modules
-    npm run prettier:format
+	npm run prettier:format src/**
 
 node_modules: package.json
 	npm install
