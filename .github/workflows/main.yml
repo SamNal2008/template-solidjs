@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "MASTER_BRANCH" ]
+    branches: [ "MAIN_BRANCH" ]
   pull_request:
-    branches: [ "MASTER_BRANCH" ]
+    branches: [ "MAIN_BRANCH" ]
   workflow_dispatch:
     inputs:
       environment:

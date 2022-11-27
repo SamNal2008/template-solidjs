@@ -7,8 +7,8 @@
 #######################################
 
 init: node_modules
-	npm install
 	@./scripts/template-utils.sh
+	@npm install
 	@echo "Project installed 🚀 !"
 
 
