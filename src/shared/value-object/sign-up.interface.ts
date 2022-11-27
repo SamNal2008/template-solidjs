@@ -8,7 +8,8 @@ class Email {
   }
 
   private constructor(value: string) {
-    if (!isStringDefined(value)) throw new TypeError("Invalid email definition with value : " + value);
+    if (!isStringDefined(value))
+      throw new TypeError("Invalid email definition with value : " + value);
     this._value = value;
   }
 
@@ -25,7 +26,8 @@ class Password {
   }
 
   private constructor(value: string) {
-    if (!isStringDefined(value)) throw new TypeError("Invalid email definition with value : " + value);
+    if (!isStringDefined(value))
+      throw new TypeError("Invalid email definition with value : " + value);
     this._value = value;
   }
 
@@ -42,7 +44,8 @@ class UserName {
   }
 
   private constructor(value: string) {
-    if (!isStringDefined(value)) throw new TypeError("Invalid email definition with value : " + value);
+    if (!isStringDefined(value))
+      throw new TypeError("Invalid email definition with value : " + value);
     this._value = value;
   }
 
@@ -55,4 +58,4 @@ export default interface ISignUpInfo {
   email: Email;
   userName: UserName;
   password: Password;
-};;;;;;;;;;;
+}
