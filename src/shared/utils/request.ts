@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { createResource, ResourceReturn } from "solid-js";
-import { JWT_TOKEN_KEY } from "src/shared/components/context/AuthenticationContext";
+import { JWT_TOKEN_KEY } from "src/shared/context/AuthenticationContext";
 import { environment } from "./environment";
 import { Logger } from "./logger";
 import { PersistentStoreUtils } from "./store";
@@ -8,7 +8,9 @@ import { PersistentStoreUtils } from "./store";
 axios.defaults.baseURL = environment.apiUrl;
 
 axios.defaults.headers.common = {
-  Authorization: `Bearer ${PersistentStoreUtils.getItem(JWT_TOKEN_KEY) as string}`,
+  Authorization: `Bearer ${
+    PersistentStoreUtils.getItem(JWT_TOKEN_KEY) as string
+  }`,
 };
 
 export default axios;
@@ -35,7 +37,9 @@ export interface AxiosCallParam {
 export const createResourceWrapper = <ResultType>(
   axiosCallParam: AxiosCallParam
 ): ResourceReturn<ResultType, undefined> => {
-  return createResource<ResultType>(async () => await axiosWrapper<ResultType>(axiosCallParam));
+  return createResource<ResultType>(
+    async () => await axiosWrapper<ResultType>(axiosCallParam)
+  );
 };
 
 export const axiosWrapper = async <ResultType>({
@@ -47,7 +51,13 @@ export const axiosWrapper = async <ResultType>({
 }: AxiosCallParam): Promise<ResultType> =>
   Method.GET === method
     ? await getAxiosWrapper<ResultType>(prefix, endpoint, config)
-    : await defaultAxiosWrapper<ResultType>(method, prefix, endpoint, body, config);
+    : await defaultAxiosWrapper<ResultType>(
+        method,
+        prefix,
+        endpoint,
+        body,
+        config
+      );
 
 const getAxiosWrapper = async <ResultType>(
   prefix: Prefix,
@@ -71,7 +81,11 @@ const defaultAxiosWrapper = async <ResultType>(
   config?: AxiosRequestConfig
 ): Promise<ResultType> => {
   try {
-    const res = await axios[method]<ResultType>(`${prefix}/${endpoint}`, body, config);
+    const res = await axios[method]<ResultType>(
+      `${prefix}/${endpoint}`,
+      body,
+      config
+    );
     return res.data;
   } catch (err) {
     Logger.error(err);

@@ -11,8 +11,8 @@ import ListItemButton from "@suid/material/ListItemButton";
 import ListItemIcon from "@suid/material/ListItemIcon";
 import ListItemText from "@suid/material/ListItemText";
 import { JSXElement, mapArray } from "solid-js";
-import { useAuth } from "../context/AuthenticationContext";
-import { useStore } from "../context/StoreContext";
+import { useAuth } from "../../context/AuthenticationContext";
+import { useStore } from "../../context/StoreContext";
 
 interface MenuActionsWithIcons {
   text: string;
@@ -37,22 +37,37 @@ export default function DrawerMenu(): JSXElement {
     },
   ];
 
-  const secondaryActions: MenuActionsWithIcons[] = [{ text: "Entreprises", icon: <AddBusiness />, href: "/companies" }];
+  const secondaryActions: MenuActionsWithIcons[] = [
+    { text: "Entreprises", icon: <AddBusiness />, href: "/companies" },
+  ];
 
-  const thirdActions: MenuActionsWithIcons[] = [{ text: "Deconnexion", icon: <LogoutIcon style={{ color: "red" }} /> }];
+  const thirdActions: MenuActionsWithIcons[] = [
+    { text: "Deconnexion", icon: <LogoutIcon style={{ color: "red" }} /> },
+  ];
 
-  const actions: MenuActionsWithIcons[][] = [mainActions, secondaryActions, thirdActions];
+  const actions: MenuActionsWithIcons[][] = [
+    mainActions,
+    secondaryActions,
+    thirdActions,
+  ];
 
-  const toggleDrawer = (open: boolean) => (event: MouseEvent | KeyboardEvent) => {
-    if (event.type === "keydown") {
-      const keyboardEvent = event as KeyboardEvent;
-      if (keyboardEvent.key === "Tab" || keyboardEvent.key === "Shift") return;
-    }
-    updateMenuState(open);
-  };
+  const toggleDrawer =
+    (open: boolean) => (event: MouseEvent | KeyboardEvent) => {
+      if (event.type === "keydown") {
+        const keyboardEvent = event as KeyboardEvent;
+        if (keyboardEvent.key === "Tab" || keyboardEvent.key === "Shift")
+          return;
+      }
+      updateMenuState(open);
+    };
 
   const list = (): JSXElement => (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
+    <Box
+      sx={{ width: 250 }}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+    >
       {mapArray(
         () => [actions[0], actions[1]],
         (actionList) => (
@@ -61,7 +76,12 @@ export default function DrawerMenu(): JSXElement {
               {mapArray(
                 () => actionList,
                 (item) => (
-                  <ListItem disablePadding component={"a"} style={{ color: "white" }} href={item.href}>
+                  <ListItem
+                    disablePadding
+                    component={"a"}
+                    style={{ color: "white" }}
+                    href={item.href}
+                  >
                     <ListItemButton>
                       <ListItemIcon>{item.icon}</ListItemIcon>
                       <ListItemText primary={item.text} />
@@ -91,7 +111,12 @@ export default function DrawerMenu(): JSXElement {
   );
 
   return (
-    <Drawer anchor={"right"} open={store.isMenuOpen} sx={{ zIndex: 9999 }} onClose={toggleDrawer(false)}>
+    <Drawer
+      anchor={"right"}
+      open={store.isMenuOpen}
+      sx={{ zIndex: 9999 }}
+      onClose={toggleDrawer(false)}
+    >
       {list()}
     </Drawer>
   );

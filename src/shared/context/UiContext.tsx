@@ -1,6 +1,9 @@
 import { createContext, JSXElement, useContext } from "solid-js";
 import { createStore, SetStoreFunction } from "solid-js/store";
-import Snackbar, { SnackbarColor, SnackbarProps } from "../snackbar/Snackbar";
+import Snackbar, {
+  SnackbarColor,
+  SnackbarProps,
+} from "../components/snackbar/Snackbar";
 
 interface IUiContext {
   alert: (severity: SnackbarColor, message: string) => void;
@@ -23,7 +26,12 @@ export const UiProvider = (props: any): JSXElement => {
   });
 
   const alert = (severity: SnackbarColor, message: string): void => {
-    setSnackBarProps({ ...snackBarProps, message, severity, open: true });
+    setSnackBarProps({
+      autoHideDuration: snackBarProps.autoHideDuration,
+      message,
+      severity,
+      open: true,
+    });
   };
 
   return (

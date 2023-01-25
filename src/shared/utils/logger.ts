@@ -15,14 +15,6 @@ class _Logger {
     this.caller = caller;
   }
 
-  // Funny javascript
-  private execute(method: ELoggerMethod, message: any): void {
-    if (isStringDefined(message) && typeof message !== "string") message = JSON.stringify(message);
-    console[method](
-      `[${method.toUpperCase()} - FIDELITY - ${DateBuilder.full()} - ${this.caller}]: ${message as string}`
-    );
-  }
-
   public log(message: any): void {
     Logger.execute(ELoggerMethod.LOG, message);
   }
@@ -40,8 +32,19 @@ class _Logger {
   }
 
   public table(object: any): void {
-    console.log(`[TABLE - FIDELITY - ${DateBuilder.full()}]:`);
+    console.log(`[TABLE - template-solidjs - ${DateBuilder.full()}]:`);
     console.table(object);
+  }
+
+  // Funny javascript
+  private execute(method: ELoggerMethod, message: any): void {
+    if (isStringDefined(message) && typeof message !== "string")
+      message = JSON.stringify(message);
+    console[method](
+      `[${method.toUpperCase()} - template-solidjs - ${DateBuilder.full()} - ${
+        this.caller
+      }]: ${message as string}`
+    );
   }
 }
 

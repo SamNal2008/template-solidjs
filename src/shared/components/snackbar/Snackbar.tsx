@@ -4,7 +4,7 @@ import Box from "@suid/material/Box";
 import Grow from "@suid/material/Grow";
 import IconButton from "@suid/material/IconButton";
 import { createEffect, JSXElement, Show } from "solid-js";
-import { useUi } from "../context/UiContext";
+import { useUi } from "../../context/UiContext";
 import "./Snackbar.css";
 
 export enum SnackbarColor {
@@ -31,7 +31,10 @@ export default function Snackbar(): JSXElement {
 
   createEffect(() => {
     if (snackBarProps.open) {
-      setTimeout(() => setSnackBarProps({ ...snackBarProps, open: false }), snackBarProps.autoHideDuration);
+      setTimeout(
+        () => setSnackBarProps({ ...snackBarProps, open: false }),
+        snackBarProps.autoHideDuration
+      );
     }
   });
 
@@ -39,7 +42,11 @@ export default function Snackbar(): JSXElement {
     <Show when={snackBarProps.open}>
       <Grow style={{ transform: "translateX(-50%)" }} in={snackBarProps.open}>
         <Box minWidth={"30%"} left={"50%"} position={"absolute"} bottom={"10%"}>
-          <Alert sx={{ paddingRight: "10%" }} elevation={12} severity={snackBarProps.severity}>
+          <Alert
+            sx={{ paddingRight: "10%" }}
+            elevation={12}
+            severity={snackBarProps.severity}
+          >
             {snackBarProps.message}
           </Alert>
           <IconButton

@@ -1,9 +1,19 @@
 import { Route, Routes } from "solid-app-router";
-import { createComputed, createSignal, JSXElement, onCleanup, Show, Suspense } from "solid-js";
+import {
+  createComputed,
+  createSignal,
+  JSXElement,
+  onCleanup,
+  Show,
+  Suspense,
+} from "solid-js";
 import styles from "./App.module.css";
-import { IAuthContext, useAuth } from "src/shared/components/context/AuthenticationContext";
-import { StoreProvider } from "src/shared/components/context/StoreContext";
-import { UiProvider } from "src/shared/components/context/UiContext";
+import {
+  IAuthContext,
+  useAuth,
+} from "src/shared/context/AuthenticationContext";
+import { StoreProvider } from "src/shared/context/StoreContext";
+import { UiProvider } from "src/shared/context/UiContext";
 import Footer from "src/shared/components/footer/Footer";
 import { Navbar } from "src/shared/components/navbar/Navbar";
 import DrawerMenu from "src/shared/components/side-menu/DrawerMenu";
@@ -23,7 +33,9 @@ const App = (): JSXElement => {
     setAppLoaded(true);
   } else {
     PersistentStoreUtils.init();
-    createComputed(() => isStringDefined(authInfo?.jwtToken) && setAppLoaded(true));
+    createComputed(
+      () => isStringDefined(authInfo?.jwtToken) && setAppLoaded(true)
+    );
   }
 
   onCleanup(() => PersistentStoreUtils.clear());

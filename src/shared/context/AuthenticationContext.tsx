@@ -1,23 +1,25 @@
 import { ThemeProvider } from "@suid/material";
-import { createContext, createEffect, createSignal, JSXElement, useContext } from "solid-js";
+import {
+  createContext,
+  createEffect,
+  createSignal,
+  JSXElement,
+  useContext,
+} from "solid-js";
 import { createStore, Part, SetStoreFunction } from "solid-js/store";
-import { Company } from "../../interfaces/company";
-import { User } from "../../interfaces/user";
-import { theme } from "../../styles/theme";
-import { environment } from "../../utils/environment";
-import persistentStore, { PersistentStoreUtils } from "../../utils/store";
-import { ModalWithActions } from "../modal/ModalWithActions";
-import { isStringDefined } from "../../utils/validators";
+import { User } from "../interfaces/user";
+import { theme } from "../styles/theme";
+import { environment } from "../utils/environment";
+import persistentStore, { PersistentStoreUtils } from "../utils/store";
+import { ModalWithActions } from "../components/modal/ModalWithActions";
+import { isStringDefined } from "../utils/validators";
 
 export const JWT_TOKEN_KEY = "jwtToken";
 export const USER_KEY = "user";
-export const COMPANIES_KEY = "companies";
 
-const DATA_KEYS_TO_WATCH: Array<Part<AuthenticationStore, keyof AuthenticationStore>> = [
-  JWT_TOKEN_KEY,
-  USER_KEY,
-  COMPANIES_KEY,
-];
+const DATA_KEYS_TO_WATCH: Array<
+  Part<AuthenticationStore, keyof AuthenticationStore>
+> = [JWT_TOKEN_KEY, USER_KEY];
 
 export interface IAuthContext {
   authInfo: AuthenticationStore;
@@ -28,7 +30,6 @@ export interface IAuthContext {
 export interface AuthenticationStore {
   isLoggedIn: boolean;
   jwtToken: string;
-  companies: Company[];
   user: User;
 }
 
@@ -38,22 +39,24 @@ export const AuthenticationContext = (props: any): JSXElement => {
   const [authInfo, setAuthInfo] = createStore<AuthenticationStore>({
     isLoggedIn: false,
     jwtToken: localStorage.getItem(JWT_TOKEN_KEY) ?? "",
-    companies: [],
     user: {} as unknown as User,
   });
 
   const [isLogoutModalOpen, setIsLogoutModalOpen] = createSignal(false);
 
-  createEffect(() => fetchAuthInfoFromPersistentStoreWithToken(persistentStore[JWT_TOKEN_KEY]));
+  createEffect(() =>
+    fetchAuthInfoFromPersistentStoreWithToken(persistentStore[JWT_TOKEN_KEY])
+  );
 
   /**
    * Update auth store info with local storage data every time it is updated
    * @param jwtToken
    */
-  const fetchAuthInfoFromPersistentStoreWithToken = (jwtToken: string): void => {
+  const fetchAuthInfoFromPersistentStoreWithToken = (
+    jwtToken: string
+  ): void => {
     if (!isStringDefined(jwtToken)) {
       setAuthInfo({
-        companies: [],
         isLoggedIn: false,
         jwtToken: "",
         user: {} as unknown as User,
@@ -62,7 +65,6 @@ export const AuthenticationContext = (props: any): JSXElement => {
     }
     setAuthInfo({
       isLoggedIn: true,
-      companies: PersistentStoreUtils.getItem(COMPANIES_KEY),
       jwtToken,
       user: PersistentStoreUtils.getItem(USER_KEY),
     });
@@ -77,12 +79,16 @@ export const AuthenticationContext = (props: any): JSXElement => {
   };
 
   const logout = (): void => {
-    DATA_KEYS_TO_WATCH.forEach((key) => PersistentStoreUtils.removeItem(key as string));
+    DATA_KEYS_TO_WATCH.forEach((key) =>
+      PersistentStoreUtils.removeItem(key as string)
+    );
     closeLogoutModal();
   };
 
   return (
-    <AuthContext.Provider value={{ authInfo, setAuthInfo, promptLogoutConfirmation }}>
+    <AuthContext.Provider
+      value={{ authInfo, setAuthInfo, promptLogoutConfirmation }}
+    >
       <ThemeProvider theme={theme}>
         <ModalWithActions
           description={"Êtes-vous sûr de vouloir vous deconnecter ?"}
@@ -99,4 +105,5 @@ export const AuthenticationContext = (props: any): JSXElement => {
   );
 };
 
-export const useAuth = (): IAuthContext => useContext(AuthContext) ?? ({ authInfo: {} } as unknown as IAuthContext);
+export const useAuth = (): IAuthContext =>
+  useContext(AuthContext) ?? ({ authInfo: {} } as unknown as IAuthContext);
